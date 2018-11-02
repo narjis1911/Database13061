@@ -2,9 +2,14 @@
 include('serverCUST.php');
 if (!isset($_SESSION['id'])) {
 	# code...
-	$_SESSION['message']= "You need to log in first";
+	
 	header('location: userlogin.php');
 }
+
+
+$output='';
+
+
 //edit func
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
@@ -13,6 +18,7 @@ if (!isset($_SESSION['id'])) {
 
 		while ($row = mysqli_fetch_array($record))
 		{
+
 			$id = $row[0];
 			$SHOPNAME = $row[1];
 			$ADDRESS = $row[2];
@@ -31,9 +37,30 @@ if (!isset($_SESSION['id'])) {
 <head>
 	<title> CUSTOMER MySQL </title>
 	<link rel="stylesheet" type="text/css" href="stylePRO.css">
+	<link rel="stylesheet" type="text/css" href="styleHOME.css">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="homepage.js"></script>
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+
+
 </head>
 <body>
+	 <div id="background">
+    <img src="stalen.jpg" class="stretch" alt="" />
+</div>
+
+
+	<div id= "live_data"></div>
+	
+	
 	<?php if (isset($_SESSION['message'])): ?>
+
+		
 		<div class="msg">
 			<?php 
 				echo $_SESSION['message']; 
@@ -41,6 +68,36 @@ if (!isset($_SESSION['id'])) {
 			?>
 		</div>
 	<?php endif ?>
+	
+	    <nav >
+                <div >
+                  
+                        <div class="navbar-head">
+                        <h5>THE SHELBYS</h5>
+
+                        </div>
+
+
+
+                    <ul class="nav navbar-nav">
+     
+      <div class="topnav">
+       <a  class ="" href="homepage.php" >Home</a>
+      <li><a class="w3-bar-item w3-button" href='infoUSERS.php' title='Users'>Users</a></li>
+      <li ><a class="w3-bar-item w3-button" href='infoSALES.php' title='Sales Persons'>Sales Persons</a></li>
+      <li ><a class="w3-bar-item w3-button" href='infopro.php' title='Products'>Products</a></li>
+      <li ><a class="w3-bar-item w3-button" href='infoCUST.php' title='Customers'>Customers</a></li>    
+      
+      <div class="topnav-right">
+     <p> <a class="w3-bar-item w3-button w3-right" id='topnavbtn_examples' href="homepage.php?logout='1'" onclick='w3_open_nav("logout")' title='Logout'>Logout </a></p>
+</div>
+</div>
+
+</ul>
+</div>
+</nav>
+
+</div>
 
 <?php $results = mysqli_query($db, "SELECT * FROM customer"); ?>
 

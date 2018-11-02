@@ -1,14 +1,15 @@
 <?php 
 
 
-DEFINE ('DB_USER', 'narjis');
-DEFINE ('DB_PASSWORD', 'narjis123');
+DEFINE ('DB_USER', 'root');
+DEFINE ('DB_PASSWORD','');
 DEFINE ('DB_HOST', 'localhost');
 DEFINE ('DB_NAME', 'loginsystem');
 
 
 	session_start();
 	$db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
 
 	// initialize variables
 	$SHOPNAME = "";
@@ -68,6 +69,7 @@ if (isset($_GET['delCUST'])) {
 
 
 	$results = mysqli_query($db, "SELECT * FROM customer");
+
 
 
 ?>

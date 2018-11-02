@@ -1,11 +1,11 @@
  <?php
 	define('host', 'localhost');
-	define('user', 'narjis');
-	define('password', 'narjis123');
+	define('user', 'root');
+	define('password', '');
 	define('dbname','loginsystem');
 	
 	
-	$db= mysqli_connect('localhost','narjis','narjis123','loginsystem');
+	$db= mysqli_connect('localhost','root','','loginsystem');
 	
  $errors= array();
  
