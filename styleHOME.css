@@ -44,9 +44,12 @@ h5{
 
 table{
     width: 100%;
-    margin: 33px auto;
+    margin: 250px;
+    margin-top: 150px;
     border-collapse: collapse;
     text-align: left;
+    background-color: whitesmoke;
+
 }
 td,  th {
     border: 2px solid #ddd;
@@ -67,7 +70,13 @@ th {
 
 
 .input-group {
-    margin: 10px 0px 10px 0px;
+    
+    background-color: whitesmoke;
+    width: 350px;
+    margin: 30px auto;
+    text-align: center;
+    border: 4px whitesmoke;
+
 }
 .input-group label {
     display: block;
@@ -146,9 +155,10 @@ th {
 .navbar-head{
 	
 	width: 100%;
-    margin: auto;
+    margin: 80px;
     text-align: center;
-	font: 100px;  
+	font: 100px;
+    position: absolute;  
 }
 .navbar-brand{
 	
@@ -164,6 +174,7 @@ th {
     background-color: black;
 
 }
+
 
 /* Style the navigation bar links */
 .navbar a {
@@ -211,11 +222,11 @@ ul {
     margin: 20px;
     padding: 50px;
     overflow: hidden;
-    background-color: transparent;
+    background-color: white;
     position: fixed;
-    top: 0;
+    top: -48px;
     bottom: 100%;
-    width: 100%;
+    width: 106%;
     float: left;
 
 }

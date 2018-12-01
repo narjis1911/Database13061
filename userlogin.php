@@ -108,6 +108,7 @@ $salesperson = "";
 
 			$query= "SELECT * FROM users WHERE id='$id' AND password='$password'";
 			$results = mysqli_query($db, $query);
+			
 			if (mysqli_num_rows($results) ==1) 
 			{
 					 	# log user in

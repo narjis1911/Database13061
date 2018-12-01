@@ -1,8 +1,8 @@
 <?php 
 
 
-DEFINE ('DB_USER', 'narjis');
-DEFINE ('DB_PASSWORD','narjis123');
+DEFINE ('DB_USER', 'root');
+DEFINE ('DB_PASSWORD','');
 DEFINE ('DB_HOST', 'localhost');
 DEFINE ('DB_NAME', 'loginsystem');
 
@@ -12,6 +12,7 @@ DEFINE ('DB_NAME', 'loginsystem');
 
 
 	// initialize variables
+	$CID = "";
 	$SHOPNAME = "";
 	$ADDRESS = "";
 	$CONTACT = "";
@@ -25,7 +26,7 @@ DEFINE ('DB_NAME', 'loginsystem');
 #insert data
 	if (isset($_POST['saveCUST'])) {
 
-		$id = $_POST['id'];
+		$CID = $_POST['CID'];
 		$SHOPNAME = $_POST['name'];
 		$ADDRESS = $_POST['address'];
 		$CONTACT = $_POST['contact'];
@@ -37,7 +38,7 @@ DEFINE ('DB_NAME', 'loginsystem');
 
 
 		mysqli_query($db, "INSERT INTO customer
-			VALUES ('$id','$SHOPNAME', '$ADDRESS', '$CONTACT', '$CONTACTNUM', '$AREA', 
+			VALUES ('$CID','$SHOPNAME', '$ADDRESS', '$CONTACT', '$CONTACTNUM', '$AREA', 
 			'$COORDINATES')"); 
 		$_SESSION['message'] = "ADDED"; 
 		header('location: infoCUST.php');
@@ -45,7 +46,7 @@ DEFINE ('DB_NAME', 'loginsystem');
 	#update
 
 	if (isset($_POST['updateCUST'])) {
-		$id = $_POST['id'];
+		$CID = $_POST['CID'];
 		$SHOPNAME = $_POST['name'];
 		$ADDRESS = $_POST['address'];
 		$CONTACT = $_POST['contact'];
@@ -55,14 +56,14 @@ DEFINE ('DB_NAME', 'loginsystem');
 		
 
 
-		mysqli_query($db, "UPDATE customer SET SHOPNAME = '$SHOPNAME', ADDRESS = '$ADDRESS', CONTACT = '$CONTACT', CONTACTNUM = '$CONTACTNUM', AREA = '$AREA', COORDINATES = '$COORDINATES' WHERE id=$id");
+		mysqli_query($db, "UPDATE customer SET SHOPNAME = '$SHOPNAME', ADDRESS = '$ADDRESS', CONTACT = '$CONTACT', CONTACTNUM = '$CONTACTNUM', AREA = '$AREA', COORDINATES = '$COORDINATES' WHERE CID=$CID");
 		$_SESSION['message'] = "EDITED"; 
 		header('location: infoCUST.php');
 	}
 #delete
 if (isset($_GET['delCUST'])) {
-	$id = $_GET['delCUST'];
-	mysqli_query($db, "DELETE FROM customer WHERE id=$id");
+	$CID = $_GET['delCUST'];
+	mysqli_query($db, "DELETE FROM customer WHERE CID=$CID");
 	$_SESSION['message'] = "REMOVED"; 
 	header('location: infoCUST.php');
 }
