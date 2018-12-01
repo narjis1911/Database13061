@@ -4,16 +4,16 @@ if (!isset($_SESSION['id'])) {
 	# code...
 	$_SESSION['message']= "";
 	header('location: userlogin.php');
-}
+}  
 //edit func
 	if (isset($_GET['edit'])) {
-		$id = $_GET['edit'];
+		$PID = $_GET['edit'];
 		$update = true;
-		$record = mysqli_query($db, "SELECT * FROM products WHERE id=$id");
+		$record = mysqli_query($db, "SELECT * FROM products WHERE PID=$PID");
 
-		while ($row = mysqli_fetch_array($record))
+		 while ($row = mysqli_fetch_array($record))
 		{
-			$id = $row[0];
+			$PID = $row[0];
 			$brand = $row[1];
 			$type = $row[2];
 			$shade =$row[3];
@@ -30,7 +30,7 @@ if (!isset($_SESSION['id'])) {
 <html>
 <head>
 	<title> PRODUCTS MySQL </title>
-	<link rel="stylesheet" type="text/css" href="stylePRO.css">
+	
 	<link rel="stylesheet" type="text/css" href="styleHOME.css">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,7 +71,7 @@ if (!isset($_SESSION['id'])) {
       <li ><a class="w3-bar-item w3-button" href='infoSALES.php' title='Sales Persons'>Sales Persons</a></li>
       <li ><a class="w3-bar-item w3-button" href='infopro.php' title='Products'>Products</a></li>
       <li ><a class="w3-bar-item w3-button" href='infoCUST.php' title='Customers'>Customers</a></li>    
-      
+       <li><a class="w3-bar-item w3-button" href='index.php' title='invoice'>Invoice</a></li>
       <div class="topnav-right">
      <p> <a class="w3-bar-item w3-button w3-right" id='topnavbtn_examples' href="homepage.php?logout='1'" onclick='w3_open_nav("logout")' title='Logout'>Logout </a></p>
 </div>
@@ -92,7 +92,7 @@ if (!isset($_SESSION['id'])) {
 			<h3>  PRODUCTS </h3>
 
 
-			<th>ID</th>
+			<th>PID</th>
 			<th>BRAND</th>
 			<th>TYPE</th>
 			<th>SHADE</th>
@@ -103,7 +103,7 @@ if (!isset($_SESSION['id'])) {
 	
 	<?php while ($row = mysqli_fetch_array($results)) { ?>
 		<tr>
-			<td><?php echo $row['id']; ?></td>
+			<td><?php echo $row['PID']; ?></td>
 			<td><?php echo $row['brand']; ?></td>
 			<td><?php echo $row['type']; ?></td>
 			<td><?php echo $row['shade']; ?></td>
@@ -112,9 +112,9 @@ if (!isset($_SESSION['id'])) {
 			
 			
 			<td>
-				<a href="infopro.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
+				<a href="infopro.php?edit=<?php echo $row['PID']; ?>" class="edit_btn" >Edit</a>
 			
-				<a href="infopro.php?delpro=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+				<a href="infopro.php?delpro=<?php echo $row['PID']; ?>" class="del_btn">Delete</a>
 			</td>
 		</tr>
 	<?php } ?>
@@ -124,12 +124,12 @@ if (!isset($_SESSION['id'])) {
 
 <form method="post" action="serverPRO.php" >
 
-	<input type="hidden" name="id" value="<?php echo $id; ?>">
+	<input type="hidden" name="PID" value="<?php echo $PID; ?>">
 	<div class="input-group">
 
 	<div class="input-group">
-		<label>ID</label>
-		<input type="text" name="id" value="<?php echo $id; ?>">
+		<label>PID</label>
+		<input type="text" name="PID" value="<?php echo $PID; ?>">
 	</div>	
 
 	<div class="input-group">

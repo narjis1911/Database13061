@@ -6,20 +6,19 @@ if (!isset($_SESSION['id'])) {
 	header('location: userlogin.php');
 }
 
-
 $output='';
 
 
 //edit func
 	if (isset($_GET['edit'])) {
-		$id = $_GET['edit'];
+		$CID = $_GET['edit'];
 		$update = true;
-		$record = mysqli_query($db, "SELECT * FROM customer WHERE id=$id");
+		$record = mysqli_query($db, "SELECT * FROM customer WHERE CID=$CID");
 
 		while ($row = mysqli_fetch_array($record))
 		{
 
-			$id = $row[0];
+			$CID = $row[0];
 			$SHOPNAME = $row[1];
 			$ADDRESS = $row[2];
 			$CONTACT = $row[3];
@@ -36,7 +35,6 @@ $output='';
 <html>
 <head>
 	<title> CUSTOMER MySQL </title>
-	<link rel="stylesheet" type="text/css" href="stylePRO.css">
 	<link rel="stylesheet" type="text/css" href="styleHOME.css">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -87,7 +85,7 @@ $output='';
       <li ><a class="w3-bar-item w3-button" href='infoSALES.php' title='Sales Persons'>Sales Persons</a></li>
       <li ><a class="w3-bar-item w3-button" href='infopro.php' title='Products'>Products</a></li>
       <li ><a class="w3-bar-item w3-button" href='infoCUST.php' title='Customers'>Customers</a></li>    
-      
+       <li><a class="w3-bar-item w3-button" href='index.php' title='invoice'>Invoice</a></li>
       <div class="topnav-right">
      <p> <a class="w3-bar-item w3-button w3-right" id='topnavbtn_examples' href="homepage.php?logout='1'" onclick='w3_open_nav("logout")' title='Logout'>Logout </a></p>
 </div>
@@ -119,7 +117,7 @@ $output='';
 	
 	<?php while ($row = mysqli_fetch_array($results)) { ?>
 		<tr>
-			<td><?php echo $row['id']; ?></td>
+			<td><?php echo $row['CID']; ?></td>
 			<td><?php echo $row['SHOPNAME']; ?></td>
 			<td><?php echo $row['ADDRESS']; ?></td>
 			<td><?php echo $row['CONTACT']; ?></td>
@@ -128,9 +126,9 @@ $output='';
 			<td><?php echo $row['COORDINATES']; ?></td>
 			
 			<td>
-				<a href="infoCUST.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
+				<a href="infoCUST.php?edit=<?php echo $row['CID']; ?>" class="edit_btn" >Edit</a>
 			
-				<a href="serverCUST.php?delCUST=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+				<a href="serverCUST.php?delCUST=<?php echo $row['CID']; ?>" class="del_btn">Delete</a>
 			</td>
 		</tr>
 	<?php } ?>
@@ -140,12 +138,12 @@ $output='';
 
 <form method="post" action="serverCUST.php" >
 
-	<input type="hidden" name="id" value="<?php echo $id; ?>">
+	<input type="hidden" name="CID" value="<?php echo $CID; ?>">
 	<div class="input-group">
 
 	<div class="input-group">
 		<label>ID</label>
-		<input type="text" name="id" value="<?php echo $id; ?>">
+		<input type="text" name="CID" value="<?php echo $CID; ?>">
 	</div>	
 
 	<div class="input-group">

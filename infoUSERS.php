@@ -26,7 +26,6 @@ if (!isset($_SESSION['id'])) {
 <html>
 <head>
 	<title> USERS MySQL </title>
-	<link rel="stylesheet" type="text/css" href="stylePRO.css">
 	<link rel="stylesheet" type="text/css" href="styleHOME.css">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -67,7 +66,7 @@ if (!isset($_SESSION['id'])) {
       <li ><a class="w3-bar-item w3-button" href='infoSALES.php' title='Sales Persons'>Sales Persons</a></li>
       <li ><a class="w3-bar-item w3-button" href='infopro.php' title='Products'>Products</a></li>
       <li ><a class="w3-bar-item w3-button" href='infoCUST.php' title='Customers'>Customers</a></li>    
-      
+       <li><a class="w3-bar-item w3-button" href='index.php' title='invoice'>Invoice</a></li>
       <div class="topnav-right">
      <p> <a class="w3-bar-item w3-button w3-right" id='topnavbtn_examples' href="homepage.php?logout='1'" onclick='w3_open_nav("logout")' title='Logout'>Logout </a></p>
 </div>

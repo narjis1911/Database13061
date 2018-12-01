@@ -2,6 +2,7 @@
 
 session_start();
 //if user is not logged in they cant access thiis page
+
 if (!isset($_SESSION['id'])) {
   # code...
  
@@ -23,8 +24,9 @@ if (!isset($_SESSION['id'])) {
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
-
+        
+      
+           
 </head>
 <body >
   <div id="background">
@@ -67,7 +69,10 @@ if (!isset($_SESSION['id'])) {
       <li ><a class="w3-bar-item w3-button" href='infoSALES.php' title='Sales Persons'>Sales Persons</a></li>
       <li ><a class="w3-bar-item w3-button" href='infopro.php' title='Products'>Products</a></li>
       <li ><a class="w3-bar-item w3-button" href='infoCUST.php' title='Customers'>Customers</a></li>
-  
+       <li><a class="w3-bar-item w3-button" href='index.php' title='invoice'>Invoice</a></li>
+       <li><a class="w3-bar-item w3-button" href='dash.php' title='DASHBOARD PRODUCT'>DASHBOARD PRODUCT</a></li>
+       <li><a class="w3-bar-item w3-button" href='dashpro.php' title='dashboard invoice'>DASHBOARD INVOICE</a></li>
+
       <?php endif  ?>
     
       
@@ -115,4 +120,5 @@ if (!isset($_SESSION['id'])) {
    
 
 </html>
+
 
